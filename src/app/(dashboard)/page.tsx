@@ -10,7 +10,7 @@ interface DashboardPageProps {
 
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const page = parseInt(searchParams.page || '1') || 1
-  const pokemons = await getPokemons(page, 8)
+  const pokemons = await getPokemons(page, 16)
 
   return (
     <AnimatableMain
