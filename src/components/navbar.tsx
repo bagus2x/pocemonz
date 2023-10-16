@@ -73,7 +73,7 @@ export const Navbar = ({ className }: PropsWithClassName) => {
           <label htmlFor='search' className='sr-only'>
             Search pokemons
           </label>
-          <div className='relative w-full shadow-2xl'>
+          <div className='relative w-full rounded-2xl shadow-2xl'>
             <input
               id='search'
               ref={searchInputRef}
