@@ -15,7 +15,7 @@ interface PokemonListProps {
 
 const usePokemons = ({ initial, currentPage }: { initial: Page<Pokemon>; currentPage: number }) => {
   return useQuery({
-    queryKey: ['pokemons', currentPage],
+    queryKey: ['pokemons', currentPage, initial.size],
     queryFn: () => getPokemons(currentPage, initial.size),
     initialData: initial
   })
@@ -51,17 +51,17 @@ export const PokemonList = ({ pokemons }: PokemonListProps) => {
       <div className='col-span-2 flex items-center justify-center md:col-span-3 lg:col-span-4'>
         <ReactPaginate
           className='flex flex-wrap'
-          previousLinkClassName='flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-          pageLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-          breakLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-          nextLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
-          activeLinkClassName='z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white'
+          previousLinkClassName='flex items-center justify-center px-3 h-8 ml-0 leading-tight text-accent-foreground bg-accent border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 bg-accent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          pageLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-accent-foreground bg-accent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 bg-accent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          breakLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-accent-foreground bg-accent border border-gray-300 hover:bg-gray-100 hover:text-gray-700 bg-accent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          nextLinkClassName='flex items-center justify-center px-3 h-8 leading-tight text-accent-foreground bg-accent border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 bg-accent dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          activeLinkClassName='flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-200 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-500 dark:text-white'
           disableInitialCallback={isLoading || isFetching}
           breakLabel='...'
           nextLabel='>'
           previousLabel='<'
           pageRangeDisplayed={3}
-          pageCount={pokemons.total / pokemons.size}
+          pageCount={Math.ceil(pokemons.total / pokemons.size)}
           onPageChange={handlePageChange}
           forcePage={currentPage - 1}
         />
