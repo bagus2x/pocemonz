@@ -32,7 +32,12 @@ const itemVariants: Variants = {
 
 export const PokemonCard = memo(({ id, name, sprite, types, className }: PokemonCardProps) => {
   return (
-    <motion.div layoutId={name} initial='hidden' whileInView='show' variants={itemVariants}>
+    <motion.div
+      layoutId={name}
+      initial='hidden'
+      whileInView='show'
+      variants={itemVariants}
+      viewport={{ once: true }}>
       <Link
         href={`/pokemon/${name}`}
         className={cn(
