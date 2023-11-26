@@ -61,7 +61,7 @@ export const PokemonList = ({ pokemons }: PokemonListProps) => {
           nextLabel='>'
           previousLabel='<'
           pageRangeDisplayed={3}
-          pageCount={Math.ceil(pokemons.total / pokemons.size)}
+          pageCount={Math.ceil(pokemons.total / pokemons.size) - 2}
           onPageChange={handlePageChange}
           forcePage={currentPage - 1}
         />
