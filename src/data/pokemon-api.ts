@@ -1,3 +1,5 @@
+'use server'
+
 import { cache } from 'react'
 
 import { Page } from '@pocemonz/data/model/page'
