@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 
 import '@pocemonz/app/globals.css'
 import { cn } from '@pocemonz/util/tw'
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           inter.className,
           'scrollbar scrollbar-track-gray-100/0 scrollbar-thumb-gray-800 scrollbar-thumb-rounded-2xl scrollbar-w-2 scrollbar-h-2 dark:scrollbar-track-gray-300 dark:scrollbar-thumb-gray-600'
         )}>
+        <NextTopLoader />
         <ThemeProvider attribute='class' defaultTheme='system'>
           <ReactQueryProvider>{children}</ReactQueryProvider>
         </ThemeProvider>
