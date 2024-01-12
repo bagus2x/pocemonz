@@ -12,22 +12,6 @@ Pocemonz is a fun and interactive application that leverages the power of the Po
 
 # Screenshot
 
-## Dashboard
-
-- Light Mode (Variant 2)
-  ![Dashboard](/misc/dashboard-light-variant-2.png)
-
-- Dark Mode (Variant 2)
-  ![Dashboard](/misc/dashboard-dark-variant-2.png)
-
-- Light Mode (Variant Legacy)
-  ![Dashboard](/misc/dashboard-light.png)
-
-- Dark Mode (Variant Legacy)
-  ![Dashboard](/misc/dashboard-dark.png)
-
-### Detail
-
 - Light Mode
   ![Detail](/misc/detail-light.png)
 
